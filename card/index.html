@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="card">
+        <img src="arthur.jpg" alt="Arthur" style="width:100%">
+        <h1>Arthur de França</h1>
+        <p class="title">Dev fullstack</p>
+        <p>Instituto Federal do Espírito Santo</p>
+        <a href="https://github.com/Arthurdfr"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/arthurdfr/"><i class="fa fa-linkedin"></i></a>
+        <p>
+            <p id="textoParaCopiar">arthurdfr2000@gmail.com</p>    
+            <button onclick="copiarTexto()">Copiar email</button>
+        </p>
+    </div>
+
+    <script>
+        function copiarTexto() {
+        // Seleciona o texto que será copiado
+        const texto = document.getElementById("textoParaCopiar").innerText;
+
+        // Cria um elemento de texto temporário
+        const elementoTexto = document.createElement("textarea");
+        elementoTexto.value = texto;
+
+        // Adiciona o elemento ao DOM
+        document.body.appendChild(elementoTexto);
+
+        // Seleciona o texto no elemento
+        elementoTexto.select();
+        elementoTexto.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+        // Copia o texto para a área de transferência
+        document.execCommand("copy");
+
+        // Remove o elemento temporário
+        document.body.removeChild(elementoTexto);
+
+        // Alerta o usuário que o texto foi copiado (opcional)
+        alert("Texto copiado: " + texto);
+    }
+    </script>
+</body>
+</html>
